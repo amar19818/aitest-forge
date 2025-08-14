@@ -15,6 +15,11 @@ import TeacherDashboard from './pages/teacher/TeacherDashboard';
 import CreateTest from './pages/teacher/CreateTest';
 import StudentDashboard from './pages/student/StudentDashboard';
 import JoinTest from './pages/shared/JoinTest';
+import TakeTest from './pages/shared/TakeTest';
+import TestResults from './pages/shared/TestResults';
+import Leaderboard from './pages/shared/Leaderboard';
+import Profile from './pages/shared/Profile';
+import StudentAnalytics from './pages/teacher/StudentAnalytics';
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -106,6 +111,46 @@ const AppRoutes = () => {
         element={
           <ProtectedRoute>
             <JoinTest />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/take-test/:testId" 
+        element={
+          <ProtectedRoute>
+            <TakeTest />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/results/:submissionId" 
+        element={
+          <ProtectedRoute>
+            <TestResults />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/leaderboard/:testId?" 
+        element={
+          <ProtectedRoute>
+            <Leaderboard />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/profile" 
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/teacher/analytics/:testId" 
+        element={
+          <ProtectedRoute role="teacher">
+            <StudentAnalytics />
           </ProtectedRoute>
         } 
       />
